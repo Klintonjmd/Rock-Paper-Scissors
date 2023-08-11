@@ -2,6 +2,7 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 const score = document.querySelector("#score");
+
 let computerScore = 0;
 let playerScore = 0;
 score.textContent = playerScore + " - " + computerScore;
@@ -54,5 +55,25 @@ function playRound(playerSelection, computerSelection) {
     }
   }
   score.innerText = playerScore + " - " + computerScore;
+  checkWinner(playerScore, computerScore);
   return;
+}
+function checkWinner(playerScore, computerScore) {
+  var div = document.createElement("div");
+
+  scoreDisplay.appendChild(div);
+  if (playerScore == 5) {
+    div.style.width = "100px";
+    div.style.height = "100px";
+    div.style.background = "red";
+    div.style.color = "white";
+    div.innerHTML = "Player wins!";
+  }
+  if (computerScore == 5) {
+    div.style.width = "100px";
+    div.style.height = "100px";
+    div.style.background = "red";
+    div.style.color = "white";
+    div.innerHTML = "Computer wins!";
+  }
 }
